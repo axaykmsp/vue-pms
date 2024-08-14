@@ -35,7 +35,6 @@ change API_ENDPOINT=https://your-api-endpoint.com/api
 
 To start the development server, use the following command:
 
-
 ```bash
 npm run dev
 ```
