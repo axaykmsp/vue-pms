@@ -13,13 +13,27 @@ export default defineConfig(({ mode }) => {
   return {
     plugins: [vue()],
     resolve: {
-      alias: {
-        "~bootstrap": path.resolve(__dirname, "node_modules/bootstrap"),
+      alias: [
+      {
+        find: '~bootstrap',
+        replacement: path.resolve(__dirname, "node_modules/bootstrap"),
       },
+      {
+        find: '@/',
+        replacement: `${path.resolve(__dirname, 'src')}/`,
+      },
+      {
+        find: '@',
+        replacement: path.resolve(__dirname, '/src'),
+      },
+    ]
     },
     define: {
       // vitejs does not support process.env so we have to redefine it
       'process.env': process.env,
+    },
+    server: {
+      port: 4200,
     },
   };
 });
